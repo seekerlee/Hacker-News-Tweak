@@ -2,14 +2,13 @@
   "name": "Hacker News Tweak",
   "version": "0.1",
   "permissions": [
-    "activeTab"
+    "activeTab","tabs"
   ],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "browser_action": {
-    "default_title": "Hacker News Tweak"
+  "background": { "scripts": ["background.js"] },
+  "page_action": {
+    "default_icon": "images/icon22.png",
+    "default_title": "Hacker News Tweak",
+	"default_popup": "info.html"
   },
   "manifest_version": 2,
   "content_scripts": [
@@ -18,5 +17,10 @@
       "css": ["content_style.css"],
       "js": ["jquery-2.0.2.min.js", "content_script.js"]
     }
-  ]
+  ],
+  "icons" : {
+    "16" : "images/icon16.png",
+    "48" : "images/icon48.png",
+    "128": "images/icon128.png"
+  }
 }

@@ -1,3 +1,5 @@
+$(function(){
+
 $(".title a").css("font-size", "20px");
 //$("body table table").attr("width", "100%");
 $("body table table tr[style]").css("height", "20px");//.html('<td colspan="3" style="border-bottom:1px dotted #ff6600;"></td>')
@@ -30,3 +32,5 @@ $(".subtext a[href^=item]").each(function(){
 	}
     $(this).html('<span style="' + style + '">' + count + '</span> comments');
 });
+
+})

@@ -1,6 +1,6 @@
 {
   "name": "Hacker News Tweak",
-  "version": "0.1",
+  "version": "1.0",
   "permissions": [
     "activeTab","tabs"
   ],

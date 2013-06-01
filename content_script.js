@@ -35,8 +35,8 @@ $(".subtext a[href^=item]").each(function(){
 
 $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>');
 var makeAddThis = function(url, title){
-    var addThisCodeItem = '<div class="addthis_toolbox addthis_default_style addthis_16x16_style" style="display: inline-table; vertical-align: top; -webkit-filter: grayscale(70%); opacity: .7;">';
-	var addThisCodeNews = '<div addthis:url="' + url + '" addthis:title="' + title + ' | share from Hacker News" class="addthis_toolbox addthis_default_style addthis_16x16_style" style="display: inline-table; vertical-align: top; -webkit-filter: grayscale(70%); opacity: .7;">';
+    var addThisCodeItem = '<div class="addthis_toolbox addthis_default_style addthis_16x16_style" style="display: inline-table; vertical-align: top; -webkit-filter: grayscale(70%); opacity: .6;">';
+	var addThisCodeNews = '<div addthis:url="' + url + '" addthis:title="' + title + ' | share from Hacker News" class="addthis_toolbox addthis_default_style addthis_16x16_style" style="display: inline-table; vertical-align: top; -webkit-filter: grayscale(70%); opacity: .6;">';
     var addThisCode1    = '<a class="addthis_button_google_plusone_share"></a>'
                         + '<a class="addthis_button_twitter"></a>'
                         + '<a class="addthis_button_facebook"></a>'

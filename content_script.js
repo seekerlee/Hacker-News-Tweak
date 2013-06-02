@@ -53,43 +53,43 @@ $(function(){
         var title = titleE.text();
         $(this).append(' |  ').append(makeAddThis(url, title));
     });
-	// add sort function to page
+    // add sort function to page
     if((pathname.indexOf('item') < 0) && (pathname.indexOf('jobs') < 0) && (pathname.indexOf('newcomments') < 0)) {
-	    $("span.pagetop").first().append(' | <label style="color: black; cursor: pointer;"><input id="order" type="checkbox" style="vertical-align: middle; margin: 0 4px;"/>order by heat desc</label>');
-	}
-	var doSort = function(fun){
-	    var mainTbody = $(".subtext").parent().parent();
-	    $(".subtext").sort(fun).each(function(){
-	        var tr1 = $(this).parent();
-	    	var tr0 = tr1.prev();
-	    	var tr2 = tr1.next();
-	    	mainTbody.prepend(tr2).prepend(tr1).prepend(tr0);
-	    });
-	}
-	$("#order").click(function(){
-		localStorage.obh = $(this).prop("checked") + ''; //the implement will auto convert to string. In case they change implement to accept bools.
-	    var rankSort = function(a, b){
-	    	var aPoints   = parseInt($("span[id^=score] span", a).text()) || 0;
-	    	var aComments = parseInt($("a[href^=item] span", a).text()) || 0;
-	    	var aRank     = aComments * 2 + aPoints;
-	    	var bPoints   = parseInt($("span[id^=score] span", b).text()) || 0;
-	    	var bComments = parseInt($("a[href^=item] span", b).text()) || 0;
-	    	var bRank     = bComments * 2 + bPoints;
-	    	return aRank - bRank;
-	    };
-		var originSort = function(a, b){
-		    var aRank = parseInt($(a).parent().prev().children(":first-child").text().replace(".", "")) || 0;
-		    var bRank = parseInt($(b).parent().prev().children(":first-child").text().replace(".", "")) || 0;
-			return bRank - aRank;
-	    };
-	    if($(this).prop("checked")) {
-		    doSort(rankSort);
-		} else {
-		    doSort(originSort);
-		}
-	});
-	if(localStorage.obh === 'true') {
-	    console.log("dsadsadsad");
-	    $("#order").click();
-	}
+        $("span.pagetop").first().append(' | <label style="color: black; cursor: pointer;"><input id="order" type="checkbox" style="vertical-align: middle; margin: 0 4px;"/>order by heat desc</label>');
+    }
+    var doSort = function(fun){
+        var mainTbody = $(".subtext").parent().parent();
+        $(".subtext").sort(fun).each(function(){
+            var tr1 = $(this).parent();
+            var tr0 = tr1.prev();
+            var tr2 = tr1.next();
+            mainTbody.prepend(tr2).prepend(tr1).prepend(tr0);
+        });
+    }
+    $("#order").click(function(){
+        localStorage.obh = $(this).prop("checked") + ''; //the implement will auto convert to string. In case they change implement to accept bools.
+        var rankSort = function(a, b){
+            var aPoints   = parseInt($("span[id^=score] span", a).text()) || 0;
+            var aComments = parseInt($("a[href^=item] span", a).text()) || 0;
+            var aRank     = aComments * 2 + aPoints;
+            var bPoints   = parseInt($("span[id^=score] span", b).text()) || 0;
+            var bComments = parseInt($("a[href^=item] span", b).text()) || 0;
+            var bRank     = bComments * 2 + bPoints;
+            return aRank - bRank;
+        };
+        var originSort = function(a, b){
+            var aRank = parseInt($(a).parent().prev().children(":first-child").text().replace(".", "")) || 0;
+            var bRank = parseInt($(b).parent().prev().children(":first-child").text().replace(".", "")) || 0;
+            return bRank - aRank;
+        };
+        if($(this).prop("checked")) {
+            doSort(rankSort);
+        } else {
+            doSort(originSort);
+        }
+    });
+    if(localStorage.obh === 'true') {
+        console.log("dsadsadsad");
+        $("#order").click();
+    }
 })

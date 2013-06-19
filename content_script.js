@@ -2,6 +2,10 @@ $(function(){
     var pathname = window.location.pathname;
     $(".title a").css("font-size", "20px");
     $("body table table tr[style]").css("height", "20px");
+	// recover best link
+	if(pathname.indexOf('best') < 0) {
+        $("span.pagetop").first().append(' | <a href="best">best</a>');
+    }
     $("span[id^=score]").each(function(){
         var count = parseInt($(this).text().split(" ")[0]);
         var style = "";
@@ -89,7 +93,6 @@ $(function(){
         }
     });
     if(localStorage.obh === 'true') {
-        console.log("dsadsadsad");
         $("#order").click();
     }
 })
